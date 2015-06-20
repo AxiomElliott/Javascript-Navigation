@@ -1,0 +1,14 @@
+{
+NavArray:[{
+  Navigation:"Cars", 
+  SubNavigation:[{Name:"Mazda3", URL:"/cars/mazda3/"},{Name:"Mazda2", URL:"/cars/mazda2/"},{Name:"Mazda5", URL:"/cars/mazda5/"}]
+ },
+ {
+  Navigation:"Dealers", 
+  SubNavigation:[{Name:"Essex", URL:"/dealers/essex/"},{Name:"Kent", URL:"/dealers/kent/"},{Name:"London", URL:"/dealers/london/"}]
+ },
+ {
+  Navigation:"Products", 
+  SubNavigation:[{Name:"Sugar", URL:"/products/sugar/"},{Name:"Cocao", URL:"/products/cocao/"},{Name:"Rice", URL:"/products/rice/"}]
+ }]
+}
