@@ -1,0 +1,13 @@
+.mainnav {
+	background-color: #FFFFAA;
+	display:table;
+	width: 50%;
+	height: 50%;
+	margin: 0;
+}
+li {
+	display: table-cell;
+	text-align: center;
+	list-style-type: none;
+	font-family: arial;
+}
