@@ -1,5 +1,6 @@
-function createList(listItems) {
+function createList(name, listItems) {
 	var ul = document.createElement("ul");
+	ul.className = name;
 	for (var item of listItems) {
 		var li = document.createElement("li");
 		li.innerHTML = item;
@@ -21,7 +22,7 @@ function getTopNavItems(jsonString) {
 function generateNavigation() {
 	var json = readJsonFromURL('nav.json');
 	var topNavigationData = getTopNavItems(json);
-	createList(topNavigationData);
+	createList('mainnav', topNavigationData);
 }
 
 function readJsonFromURL(url) {
