@@ -1,13 +1,26 @@
-.mainnav {
-	background-color: #FFFFAA;
-	display:table;
-	width: 50%;
-	height: 50%;
-	margin: 0;
+* {
+margin: 0;
+padding: 0;
 }
-li {
+#navigation {
+	background-color: #FFFFAA;
+	width: 50%;
+}
+#mainnav {
+	display:table;
+	width:100%;
+	height: 50px;
+	margin: 0;
+	font-family: arial;
+}
+#subnav {
+	display:table;
+	height: 150px;
+	margin: 0;
+	font-family: arial;
+}
+.mainnavli {
 	display: table-cell;
 	text-align: center;
 	list-style-type: none;
-	font-family: arial;
 }

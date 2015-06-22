@@ -1,12 +1,11 @@
-function createList(name, listItems) {
-	var ul = document.createElement("ul");
-	ul.className = name;
+function createList(listItems) {
+	var ul = document.getElementById("mainnav");
 	for (var item of listItems) {
 		var li = document.createElement("li");
 		li.innerHTML = item;
+		li.className = "mainnavli";
 		ul.innerHTML += li.outerHTML;
 	}
-	document.body.innerHTML += ul.outerHTML;
 }
 function jsonNavToObject(jsonString) {
 
@@ -22,7 +21,7 @@ function getTopNavItems(jsonString) {
 function generateNavigation() {
 	var json = readJsonFromURL('nav.json');
 	var topNavigationData = getTopNavItems(json);
-	createList('mainnav', topNavigationData);
+	createList(topNavigationData);
 }
 
 function readJsonFromURL(url) {
