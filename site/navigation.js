@@ -44,13 +44,14 @@ function readJsonFromURL(url) {
 	return "{\"NavArray\":[{\"Navigation\":\"Cars\",\"URL\":\"/cars/\",\"SubNavigation\":[{\"Name\":\"Mazda3\", \"URL\":\"/cars/mazda3/\"},{\"Name\":\"Mazda2\", \"URL\":\"/cars/mazda2/\"},{\"Name\":\"Mazda5\", \"URL\":\"/cars/mazda5/\"}]},{\"Navigation\":\"Dealers\", \"URL\":\"/dealers/\",\"SubNavigation\":[{\"Name\":\"Essex\", \"URL\":\"/dealers/essex/\"},{\"Name\":\"Kent\", \"URL\":\"/dealers/kent/\"},{\"Name\":\"London\", \"URL\":\"/dealers/london/\"}]},{\"Navigation\":\"Products\", \"URL\":\"/products/\",\"SubNavigation\":[{\"Name\":\"Sugar\", \"URL\":\"/products/sugar/\"},{\"Name\":\"Cocao\", \"URL\":\"/products/cocao/\"},{\"Name\":\"Rice\", \"URL\":\"/products/rice/\"}]}]}";
 }
 function switchSubNavigation(newSubNav) {
+	$("#subnav").empty();
+	var jsonString = readJsonFromURL('nav.json');
+	var json = JSON.parse(jsonString);
+	createList(getSubNavItems(jsonString, newSubNav), "subnav");
 }
 $(document).ready(function(){
-	$("#mainnav").on("click", "li", function() {
-		var jsonString = readJsonFromURL('nav.json');
-		var json = JSON.parse(jsonString);
-		$("#subnav").empty();
-		createList(getSubNavItems(jsonString, $(this).attr("value")), "subnav");
+	$("#mainnav").on("click", "li", function() {		
+		switchSubNavigation($(this).attr("value"));
 	});
 });
 
