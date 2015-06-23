@@ -47,9 +47,11 @@ function switchSubNavigation(newSubNav) {
 }
 $(document).ready(function(){
 	$("#mainnav").on("click", "li", function() {
-		alert($(this).attr("value"));
+		var jsonString = readJsonFromURL('nav.json');
+		var json = JSON.parse(jsonString);
+		$("#subnav").empty();
+		createList(getSubNavItems(jsonString, $(this).attr("value")), "subnav");
 	});
 });
-
 
 
