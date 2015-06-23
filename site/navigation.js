@@ -45,9 +45,9 @@ function readJsonFromURL(url) {
 }
 function switchSubNavigation(newSubNav) {
 }
-$(document).ready(function () {
-	$("#mainnavli").click(function() {
-	  alert($(this).attr("value"));
+$(document).ready(function(){
+	$("#mainnav").on("click", "li", function() {
+		alert($(this).attr("value"));
 	});
 });
 
