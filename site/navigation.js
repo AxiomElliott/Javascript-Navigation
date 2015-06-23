@@ -3,6 +3,7 @@ function createList(listItems, ulid) {
 	for (var item of listItems) {
 		var li = document.createElement("li");
 		li.innerHTML = item;
+		li.setAttribute("value", item);
 		li.className = "mainnavli";
 		ul.innerHTML += li.outerHTML;
 	}
@@ -43,3 +44,11 @@ function readJsonFromURL(url) {
 }
 function switchSubNavigation(newSubNav) {
 }
+$(document).ready(function () {
+	$("#mainnavli").click(function() {
+	  alert($(this).attr("value"));
+	});
+});
+
+
+
