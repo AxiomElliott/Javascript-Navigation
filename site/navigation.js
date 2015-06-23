@@ -4,6 +4,7 @@ function createList(listItems, ulid) {
 		var li = document.createElement("li");
 		li.innerHTML = item;
 		li.setAttribute("value", item);
+		li.setAttribute("id", "mainnavli");
 		li.className = "mainnavli";
 		ul.innerHTML += li.outerHTML;
 	}
