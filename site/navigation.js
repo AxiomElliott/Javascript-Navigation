@@ -9,15 +9,13 @@ function createList(listItems, ulid) {
 		ul.innerHTML += li.outerHTML;
 	}
 }
-function setDefaultSubNav(jsonString, subnavid) {
-	var json = JSON.parse(jsonString);
-	createList(getSubNavItems(jsonString, json.NavArray[0].Navigation), subnavid);
+function setDefaultSubNav(subnavid) {
+	createList(getSubNavItems(jsonObject.NavArray[0].Navigation), subnavid);
 }
-function getSubNavItems(jsonString, subnavid) {
+function getSubNavItems(subnavid) {
 	var items = [];
 	var subitems = [];
-	var json = JSON.parse(jsonString);
-	for (item of json.NavArray) {
+	for (item of jsonObject.NavArray) {
 		if (item.Navigation == subnavid){
 			for (var sitem of item.SubNavigation) {
 				subitems.push(sitem.Name);
@@ -26,33 +24,49 @@ function getSubNavItems(jsonString, subnavid) {
 	}
 	return subitems;
 }
-function getTopNavItems(jsonString) {
+function getTopNavItems() {
 	var items = [];
-	var json = JSON.parse(jsonString);
-	for (var item of json.NavArray) {
+	for (var item of jsonObject.NavArray) {
 		items.push(item.Navigation);
 	}
 	return items;
 }
 function generateNavigation() {
-	var json = readJsonFromURL('nav.json');
-	var topNavigationData = getTopNavItems(json);
+	var topNavigationData = getTopNavItems();
 	createList(topNavigationData, "mainnav");
-	setDefaultSubNav(json, "subnav");
-}
-function readJsonFromURL(url) {
-	return "{\"NavArray\":[{\"Navigation\":\"Cars\",\"URL\":\"/cars/\",\"SubNavigation\":[{\"Name\":\"Mazda3\", \"URL\":\"/cars/mazda3/\"},{\"Name\":\"Mazda2\", \"URL\":\"/cars/mazda2/\"},{\"Name\":\"Mazda5\", \"URL\":\"/cars/mazda5/\"}]},{\"Navigation\":\"Dealers\", \"URL\":\"/dealers/\",\"SubNavigation\":[{\"Name\":\"Essex\", \"URL\":\"/dealers/essex/\"},{\"Name\":\"Kent\", \"URL\":\"/dealers/kent/\"},{\"Name\":\"London\", \"URL\":\"/dealers/london/\"}]},{\"Navigation\":\"Products\", \"URL\":\"/products/\",\"SubNavigation\":[{\"Name\":\"Sugar\", \"URL\":\"/products/sugar/\"},{\"Name\":\"Cocao\", \"URL\":\"/products/cocao/\"},{\"Name\":\"Rice\", \"URL\":\"/products/rice/\"}]}]}";
+	setDefaultSubNav("subnav");
 }
 function switchSubNavigation(newSubNav) {
 	$("#subnav").empty();
-	var jsonString = readJsonFromURL('nav.json');
-	var json = JSON.parse(jsonString);
-	createList(getSubNavItems(jsonString, newSubNav), "subnav");
+	createList(getSubNavItems(newSubNav), "subnav");
 }
 $(document).ready(function(){
 	$("#mainnav").on("click", "li", function() {		
 		switchSubNavigation($(this).attr("value"));
 	});
 });
+
+var jsonObject = {
+	"NavArray":[
+		{
+			"Navigation":"Nintendo",
+			"Color":"#C91800",
+			"URL":"/nintendo/",
+			"SubNavigation":[{"Name":"Gameboy", "URL":""},{"Name":"Gamecube", "URL":""},{"Name":"N64", "URL":""}]
+		},
+		{
+			"Navigation":"Sony",
+			"Color":"#0040C9",
+			"URL":"/sony/",
+			"SubNavigation":[{"Name":"PSP", "URL":""},{"Name":"PS2", "URL":""},{"Name":"Vita", "URL":""}]
+		},
+		{
+			"Navigation":"Microsoft",
+			"Color":"#00C936",
+			"URL":"/microsoft/",
+			"SubNavigation":[{"Name":"PC", "URL":""},{"Name":"Xbox 360", "URL":""},{"Name":"Xbox One", "URL":""}]
+		}
+	]
+};
 
 

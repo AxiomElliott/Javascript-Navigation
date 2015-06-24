@@ -1,19 +1,19 @@
 {
 	"NavArray":[
 		{
-			"Navigation":"Cars", 
-			"URL":"/cars/",
-			"SubNavigation":[{"Name":"Mazda3", "URL":"/cars/mazda3/"},{"Name":"Mazda2", "URL":"/cars/mazda2/"},{"Name":"Mazda5", "URL":"/cars/mazda5/"}]
+			"Navigation":"Nintendo", 
+			"URL":"/nintendo/",
+			"SubNavigation":[{"Name":"Gameboy", "URL":""},{"Name":"Gamecube", "URL":""},{"Name":"N64", "URL":""}]
 		},
 		{
-			"Navigation":"Dealers", 
-			"URL":"/dealers/",
-			"SubNavigation":[{"Name":"Essex", "URL":"/dealers/essex/"},{"Name":"Kent", "URL":"/dealers/kent/"},{"Name":"London", "URL":"/dealers/london/"}]
+			"Navigation":"Sony", 
+			"URL":"/sony/",
+			"SubNavigation":[{"Name":"PSP", "URL":""},{"Name":"PS2", "URL":""},{"Name":"Vita", "URL":""}]
 		},
 		{
-			"Navigation":"Products", 
-			"URL":"/products/",
-			"SubNavigation":[{"Name":"Sugar", "URL":"/products/sugar/"},{"Name":"Cocao", "URL":"/products/cocao/"},{"Name":"Rice", "URL":"/products/rice/"}]
+			"Navigation":"Microsoft", 
+			"URL":"/microsoft/",
+			"SubNavigation":[{"Name":"PC", "URL":""},{"Name":"Xbox 360", "URL":""},{"Name":"Xbox One", "URL":""}]
 		}
 	]
 }
