@@ -9,6 +9,21 @@ function createList(listItems, ulid) {
 		ul.innerHTML += li.outerHTML;
 	}
 }
+
+function createSubNavList(subNavType) {
+	var ul = document.getElementById("subnav");
+	var listItems = getSubNavItems(subNavType);
+	for (var item of listItems) {
+		var li = document.createElement("li");
+		li.className = "subnav-container";
+		var container = document.createElement("div");
+		container.className = "flip-card";
+		var front = document.createElement("div");
+		front.className = "front";
+		var back = document.createElement("div");
+		back.className = "back";	
+	}
+}
 function setDefaultSubNav(subnavid) {
 	createList(getSubNavItems(jsonObject.NavArray[0].Navigation), subnavid);
 }
