@@ -20,9 +20,9 @@ function createSubNavList(subNavType) {
 		container.className = "flip-card";
 		var front = document.createElement("div");
 		front.className = "front";
+		front.innerHTML += item;
 		var back = document.createElement("div");
 		back.className = "back";
-		back.innerHTML += item;
 		container.appendChild(front);
 		container.appendChild(back);
 		li.appendChild(container);
@@ -71,19 +71,19 @@ var jsonObject = {
 		{
 			"Navigation":"Nintendo",
 			"Color":"#C91800",
-			"URL":"/nintendo/",
+			"URL":"/nintendo",
 			"SubNavigation":[{"Name":"Gameboy", "URL":""},{"Name":"Gamecube", "URL":""},{"Name":"N64", "URL":""}]
 		},
 		{
 			"Navigation":"Sony",
 			"Color":"#0040C9",
-			"URL":"/sony/",
+			"URL":"/sony",
 			"SubNavigation":[{"Name":"PSP", "URL":""},{"Name":"PS2", "URL":""},{"Name":"Vita", "URL":""}]
 		},
 		{
 			"Navigation":"Microsoft",
 			"Color":"#00C936",
-			"URL":"/microsoft/",
+			"URL":"/microsoft",
 			"SubNavigation":[{"Name":"PC", "URL":""},{"Name":"Xbox 360", "URL":""},{"Name":"Xbox One", "URL":""}]
 		}
 	]

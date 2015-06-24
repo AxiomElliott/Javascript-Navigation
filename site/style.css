@@ -58,6 +58,7 @@
 }
 .front {
 	z-index: 2;
+	background-color: #C91800;
 	transform: rotateY(0deg);
 }
 .back {
