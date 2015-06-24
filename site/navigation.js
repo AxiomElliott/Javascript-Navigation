@@ -21,11 +21,16 @@ function createSubNavList(subNavType) {
 		var front = document.createElement("div");
 		front.className = "front";
 		var back = document.createElement("div");
-		back.className = "back";	
+		back.className = "back";
+		back.innerHTML += item;
+		container.appendChild(front);
+		container.appendChild(back);
+		li.appendChild(container);
+		ul.appendChild(li);
 	}
 }
 function setDefaultSubNav(subnavid) {
-	createList(getSubNavItems(jsonObject.NavArray[0].Navigation), subnavid);
+	createSubNavList(jsonObject.NavArray[0].Navigation);
 }
 function getSubNavItems(subnavid) {
 	var items = [];
@@ -53,7 +58,7 @@ function generateNavigation() {
 }
 function switchSubNavigation(newSubNav) {
 	$("#subnav").empty();
-	createList(getSubNavItems(newSubNav), "subnav");
+	createSubNavList(newSubNav);
 }
 $(document).ready(function(){
 	$("#mainnav").on("click", "li", function() {		
