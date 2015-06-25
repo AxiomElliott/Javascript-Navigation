@@ -20,9 +20,11 @@ function createSubNavList(subNavType) {
 		container.className = "flip-card";
 		var front = document.createElement("div");
 		front.className = "front";
+		front.style.backgroundImage = "url('assets/psp.jpg')";
 		front.innerHTML += item;
 		var back = document.createElement("div");
 		back.className = "back";
+		back.innerHTML += item;
 		container.appendChild(front);
 		container.appendChild(back);
 		li.appendChild(container);

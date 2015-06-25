@@ -1,7 +1,7 @@
 * {
 	margin: 0;
 	padding: 0;
-	font-family: verdana;
+	font-family: 'Lobster', Georgia, Times, serif;
 }
 #navigation {
 	background-color: #00C795;
@@ -47,6 +47,8 @@
 .flip-card{
 	transition: 0.6s;
 	transform-style: preserve-3d;
+	height:100%;
+	width:100%;
 	position: relative;
 }
 .front, .back {
