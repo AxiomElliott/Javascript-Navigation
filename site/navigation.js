@@ -21,7 +21,7 @@ function createSubNavList(subNavType) {
 		var front = document.createElement("div");
 		front.className = "front";
 		front.style.backgroundImage = "url('assets/psp.jpg')";
-		front.innerHTML += item;
+		front.id = "front";
 		var back = document.createElement("div");
 		back.className = "back";
 		back.innerHTML += item;
