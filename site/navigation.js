@@ -62,9 +62,14 @@ function switchSubNavigation(newSubNav) {
 	$("#subnav").empty();
 	createSubNavList(newSubNav);
 }
+
+
 $(document).ready(function(){
-	$("#mainnav").on("click", "li", function() {		
+	$("#mainnav").on("click", "li", function() {
 		switchSubNavigation($(this).attr("value"));
+	});
+	$("#subnav").on("click", "li", function() {
+		$(this).removeClass("subnav-container").addClass("subnav-container-clicked");
 	});
 });
 

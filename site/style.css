@@ -40,11 +40,11 @@
 	perspective: 1000;
 }
 
-.subnav-container, .front, .back {
+.subnav-container, .subnav-container-clicked, .front, .front-clicked, .back {
 	width: 100%;
 	height: 100%;
 }
-.subnav-container {
+.subnav-container, .subnav-container-clicked {
 	padding:30px 15px 30px 15px;
 }
 .flip-card{
@@ -54,7 +54,7 @@
 	width:100%;
 	position: relative;
 }
-.front, .back {
+.front, .front-clicked, .back {
 	position: absolute;
 	background-size: cover;
     background-position: center;
@@ -65,16 +65,9 @@
 	transform: rotateY(0deg);
 	opacity:1;
 	transition-property:opacity;
-	transition:0.6s;
+	transition:0.5s;
 }
 
-.front:hover {
-	z-index: 6000;
-	transform: rotateY(0deg);
-	opacity: 0.2;
-	transition-property:opacity;
-	transition:0.6s;
-}
 .back {
 	transform: rotateY(180deg);
 	display: flex;
@@ -84,7 +77,15 @@
     z-index:-600;
 }
 
-
-.subnav-container:hover .flip-card, .subnav-container.hover .flip-card {
+.front-clicked {
+	z-index: 6000;
+	transform: rotateY(0deg);
+	opacity: 0.2;
+	transition-property:opacity;
+	transition:0.5s;
+}
+.subnav-container-clicked {
 		transform: rotateY(180deg);
+		transition-property:transform;
+		transition:0.6s;
 	}
