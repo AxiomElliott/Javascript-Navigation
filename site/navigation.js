@@ -20,11 +20,11 @@ function createSubNavList(subNavType) {
 		container.className = "flip-card";
 		var front = document.createElement("div");
 		front.className = "front";
-		front.style.backgroundImage = "url('assets/psp.jpg')";
+		front.style.backgroundImage = "url('assets/" + item.URL + "')";
 		front.id = "front";
 		var back = document.createElement("div");
 		back.className = "back";
-		back.innerHTML += item;
+		back.innerHTML += item.Name;
 		container.appendChild(front);
 		container.appendChild(back);
 		li.appendChild(container);
@@ -40,7 +40,7 @@ function getSubNavItems(subnavid) {
 	for (item of jsonObject.NavArray) {
 		if (item.Navigation == subnavid){
 			for (var sitem of item.SubNavigation) {
-				subitems.push(sitem.Name);
+				subitems.push(sitem);
 			}
 		}
 	}
@@ -63,13 +63,20 @@ function switchSubNavigation(newSubNav) {
 	createSubNavList(newSubNav);
 }
 
-
 $(document).ready(function(){
 	$("#mainnav").on("click", "li", function() {
 		switchSubNavigation($(this).attr("value"));
 	});
-	$("#subnav").on("click", "li", function() {
+	$("#subnav").on("click", ".subnav-container", function() {
 		$(this).removeClass("subnav-container").addClass("subnav-container-clicked");
+		$(this).find(".front").removeClass("front").addClass("front-clicked");
+		$(this).find(".back").removeClass("back").addClass("back-clicked");
+	});
+
+	$("#subnav").on("click", ".subnav-container-clicked", function() {
+		$(this).removeClass("subnav-container-clicked").addClass("subnav-container");
+		$(this).find(".front-clicked").removeClass("front-clicked").addClass("front");
+		$(this).find(".back-clicked").removeClass("back-clicked").addClass("back");
 	});
 });
 
@@ -79,19 +86,19 @@ var jsonObject = {
 			"Navigation":"Nintendo",
 			"Color":"#C91800",
 			"URL":"/nintendo",
-			"SubNavigation":[{"Name":"Gameboy", "URL":""},{"Name":"Gamecube", "URL":""},{"Name":"N64", "URL":""}]
+			"SubNavigation":[{"Name":"Gameboy", "URL":"gameboy.jpg"},{"Name":"Gamecube", "URL":"gamecube.jpg"},{"Name":"N64", "URL":"n64.jpg"}]
 		},
 		{
 			"Navigation":"Sony",
 			"Color":"#0040C9",
 			"URL":"/sony",
-			"SubNavigation":[{"Name":"PSP", "URL":""},{"Name":"PS2", "URL":""},{"Name":"Vita", "URL":""}]
+			"SubNavigation":[{"Name":"PSP", "URL":"psp.jpg"},{"Name":"PS2", "URL":"ps2.png"},{"Name":"Vita", "URL":"vita.jpg"}]
 		},
 		{
 			"Navigation":"Microsoft",
 			"Color":"#00C936",
 			"URL":"/microsoft",
-			"SubNavigation":[{"Name":"PC", "URL":""},{"Name":"Xbox 360", "URL":""},{"Name":"Xbox One", "URL":""}]
+			"SubNavigation":[{"Name":"PC", "URL":"pc.jpg"},{"Name":"Xbox", "URL":"xbox.jpg"},{"Name":"Xbox 360", "URL":"xbox360.jpg"}]
 		}
 	]
 };
