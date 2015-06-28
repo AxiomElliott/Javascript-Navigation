@@ -56,6 +56,9 @@
 
 .subnav-container-clicked {
 	transform: rotateY(180deg);
+	width:400%;
+	transition-property:width;
+	transition: all 0.9s ease 0.6s, transform 0.6s;
 }
 
 .flip-card{
@@ -94,6 +97,7 @@
 	transform: rotateY(30deg);
 	transition-property:transform;
 	transition:0.2s;
+	box-shadow: 8px 0px 6px -6px #555;
 }
 
 .back, .back-clicked {
