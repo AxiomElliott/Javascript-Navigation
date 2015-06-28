@@ -69,17 +69,40 @@ $(document).ready(function(){
 		switchSubNavigation($(this).attr("value"));
 	});
 	$("#subnav").on("click", ".subnav-container", function() {
-		$(this).removeClass("subnav-container").addClass("subnav-container-clicked");
-		$(this).find(".front").removeClass("front").addClass("front-clicked");
-		$(this).find(".back").removeClass("back").addClass("back-clicked");
+		closeCurrentSubNavItem();
+		openSubNavItem(this);
 	});
 
 	$("#subnav").on("click", ".subnav-container-clicked", function() {
-		$(this).removeClass("subnav-container-clicked").addClass("subnav-container");
-		$(this).find(".front-clicked").removeClass("front-clicked").addClass("front");
-		$(this).find(".back-clicked").removeClass("back-clicked").addClass("back");
+		disableHoverDuringTransition(this);
+		closeSubNavItem(this);
 	});
 });
+
+function openSubNavItem(subnav) {
+	$(subnav).removeClass("subnav-container").addClass("subnav-container-clicked");
+	$(subnav).find(".front").removeClass("front").addClass("front-clicked");
+	$(subnav).find(".back").removeClass("back").addClass("back-clicked");
+	$(subnav).find(".flip-card").removeClass("flip-card").addClass("flip-card-clicked");
+}
+
+function closeSubNavItem(subnav) {
+	$(subnav).removeClass("subnav-container-clicked").addClass("subnav-container");
+	$(subnav).find(".front-clicked").removeClass("front-clicked").addClass("front");
+	$(subnav).find(".back-clicked").removeClass("back-clicked").addClass("back");
+	$(subnav).find(".flip-card-clicked").removeClass("flip-card-clicked").addClass("flip-card");
+}
+
+function closeCurrentSubNavItem() {
+	closeSubNavItem($("#subnav").find(".subnav-container-clicked"));
+}
+
+function disableHoverDuringTransition(subnav) {
+	$(subnav).find(".front").unbind("hover");
+    setTimeout(function(){
+		(subnav).find(".front").bind("hover");
+    }, 1000);
+}
 
 var jsonObject = {
 	"NavArray":[
