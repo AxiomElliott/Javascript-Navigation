@@ -53,17 +53,18 @@ function getTopNavItems() {
 	}
 	return items;
 }
-function generateNavigation() {
-	var topNavigationData = getTopNavItems();
-	createList(topNavigationData, "mainnav");
-	setDefaultSubNav("subnav");
-}
+
 function switchSubNavigation(newSubNav) {
 	$("#subnav").empty();
 	createSubNavList(newSubNav);
 }
 
 $(document).ready(function(){
+
+	var topNavigationData = getTopNavItems();
+	createList(topNavigationData, "mainnav");
+	setDefaultSubNav("subnav");
+
 	$("#mainnav").on("click", "li", function() {
 		switchSubNavigation($(this).attr("value"));
 	});
